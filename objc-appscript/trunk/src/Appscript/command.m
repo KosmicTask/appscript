@@ -42,7 +42,7 @@ static NSAppleEventDescriptor *defaultIgnore;
 	ASRelaunchMode relaunchPolicy = [appData relaunchMode];
 	if (relaunchPolicy != kASRelaunchNever && [target targetType] == kAEMTargetFileURL
 			&& ![AEMApplication processExistsForPID: [[target descriptor] int32Value]]) {
-		if (relaunchPolicy == kASRelaunchAlways || classCode == kCoreEventClass && code == kAEOpenApplication) {
+		if (relaunchPolicy == kASRelaunchAlways || (classCode == kCoreEventClass && code == kAEOpenApplication)) {
 			BOOL success = [target reconnectWithError: &targetError];
 			if (!success) goto fail;
 		}
@@ -86,17 +86,17 @@ fail:
 }
 
 - (id)waitForReply {
-	sendMode = sendMode & ~kAENoReply & ~kAEQueueReply | kAEWaitReply;
+	sendMode = (sendMode & ~kAENoReply & ~kAEQueueReply) | kAEWaitReply;
 	return self;
 }
 
 - (id)ignoreReply {
-	sendMode = sendMode & ~kAEWaitReply & ~kAEQueueReply | kAENoReply;
+	sendMode = (sendMode & ~kAEWaitReply & ~kAEQueueReply) | kAENoReply;
 	return self;
 }
 
 - (id)queueReply {
-	sendMode = sendMode & ~kAENoReply & ~kAEWaitReply | kAEQueueReply;
+	sendMode = (sendMode & ~kAENoReply & ~kAEWaitReply) | kAEQueueReply;
 	return self;
 }
 
@@ -285,7 +285,7 @@ fail:
 	if (timeout != kAEDefaultTimeout)
 		result = [NSString stringWithFormat: @"[%@ timeout: %i]", result, timeout / 60];
 	if (sendMode != (kAEWaitReply | kAECanSwitchLayer)) {
-		if (sendMode & ~(kAEWaitReply | kAEQueueReply | kAENoReply) == kAECanSwitchLayer) {
+		if (sendMode & (~(kAEWaitReply | kAEQueueReply | kAENoReply) == kAECanSwitchLayer)) {
 			if (sendMode & kAENoReply)
 				result = [NSString stringWithFormat: @"[%@ ignoreReply]", result];
 			if (sendMode & kAEQueueReply)

@@ -39,7 +39,7 @@
 	if ([obj isKindOfClass: [NSArray class]]) {
 		n = [(NSArray *)obj objectEnumerator];
 		[result appendString: @"[NSArray arrayWithObjects:\n"];
-		while (obj2 = [n nextObject]) {
+		while ((obj2 = [n nextObject])) {
 			[self formatObject: obj2 indent: nextIndent result: result];
 			[result appendString: @",\n"];
 		}
@@ -48,7 +48,7 @@
 	} else if ([obj isKindOfClass: [NSDictionary class]]) {
 		n = [(NSDictionary *)obj keyEnumerator];
 		[result appendString: @"[NSDictionary dictionaryWithObjectsAndKeys:\n"];
-		while (obj2 = [n nextObject]) {
+		while ((obj2 = [n nextObject])) {
 			obj3 = [(NSDictionary *)obj objectForKey: obj2];
 			[self formatObject: obj3 indent: nextIndent result: result];
 			[result appendString: @", "];

@@ -286,7 +286,7 @@
 											 eventClass: eventClass
 												eventID: eventID];
 		parameterEnumerator = [[parserCommandDef parameters] objectEnumerator];
-		while (parameterDef = [parameterEnumerator nextObject]) {
+		while ((parameterDef = [parameterEnumerator nextObject])) {
 			parameterName = [parameterDef name];
 			convertedName = [keywordCache objectForKey: parameterName];
 			if (!convertedName) {

@@ -141,7 +141,6 @@
 					break;
 				} // else pack as double for compatibility's sake
 			default: // f, d
-				packAsDouble:
 					float64 = [anObject doubleValue];
 					result = [NSAppleEventDescriptor descriptorWithDescriptorType: typeIEEE64BitFloatingPoint
 																			bytes: &float64
@@ -208,7 +207,7 @@
 	
 	enumerator = [anObject objectEnumerator];
 	desc = [NSAppleEventDescriptor listDescriptor];
-	while (item = [enumerator nextObject])
+	while ((item = [enumerator nextObject]))
 		[desc insertDescriptor: [self pack: item] atIndex: 0];
 	return desc;
 }
@@ -222,7 +221,7 @@
 	
 	enumerator = [anObject keyEnumerator];
 	result = [NSAppleEventDescriptor recordDescriptor];
-	while (key = [enumerator nextObject]) {
+	while ((key = [enumerator nextObject])) {
 		value = [anObject objectForKey: key];
 		if (!value) [NSException raise: @"BadDictionaryKey"
 								format: @"Not an acceptable dictionary key: %@", key];

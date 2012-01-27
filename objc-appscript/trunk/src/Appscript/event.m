@@ -293,11 +293,11 @@ static ASEventAttributeDescription attributeKeys[] = {
 					nil];
 			if (errorString)
 				[errorInfo setValue: errorString forKey: kASErrorStringKey];
-			if (errorMessage = [replyData paramDescriptorForKeyword: kOSAErrorBriefMessage])
+			if ((errorMessage = [replyData paramDescriptorForKeyword: kOSAErrorBriefMessage]))
 				[errorInfo setValue: [errorMessage stringValue] forKey: kASErrorBriefMessageKey];
-			if (errorObject = [replyData paramDescriptorForKeyword: kOSAErrorOffendingObject])
+			if ((errorObject = [replyData paramDescriptorForKeyword: kOSAErrorOffendingObject]))
 				[errorInfo setValue: [codecs unpack: errorObject] forKey: kASErrorOffendingObjectKey];
-			if (errorType = [replyData paramDescriptorForKeyword: kOSAErrorExpectedType])
+			if ((errorType = [replyData paramDescriptorForKeyword: kOSAErrorExpectedType]))
 				[errorInfo setValue: [codecs unpack: errorType] forKey: kASErrorExpectedTypeKey];
 			*error = [NSError errorWithDomain: kASErrorDomain code: errorNumber userInfo: errorInfo];
 		}
