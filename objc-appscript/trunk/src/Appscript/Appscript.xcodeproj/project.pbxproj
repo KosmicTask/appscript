@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -344,7 +344,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "Appscript" */;
-			compatibilityVersion = "Xcode 2.4";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -469,8 +469,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
+				WARNING_CFLAGS = "-Wall";
 			};
 			name = Debug_10.4;
 		};
@@ -486,8 +488,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
+				WARNING_CFLAGS = "-Wall";
 			};
 			name = Release_10.4_32;
 		};
@@ -503,8 +507,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
+				WARNING_CFLAGS = "-Wall";
 			};
 			name = Release_10.4_32_embed;
 		};
@@ -537,12 +543,14 @@
 					x86_64,
 				);
 				DEPLOYMENT_LOCATION = NO;
-				GCC_ENABLE_OBJC_GC = YES;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				WARNING_CFLAGS = "-Wall";
 			};
 			name = Release_10.5_32_64_GC;
 		};
@@ -573,12 +581,14 @@
 					x86_64,
 				);
 				DEPLOYMENT_LOCATION = NO;
-				GCC_ENABLE_OBJC_GC = YES;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				WARNING_CFLAGS = "-Wall";
 			};
 			name = Release_10.5_32_64_GC_embed;
 		};
@@ -607,8 +617,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				WARNING_CFLAGS = "-Wall";
 			};
 			name = Debug_10.5;
 		};
@@ -635,6 +647,76 @@
 			};
 			name = Debug_10.5;
 		};
+		AB8D3EE614D2D0C200FC88A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				DEPLOYMENT_LOCATION = NO;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PREBINDING = NO;
+				WARNING_CFLAGS = "-Wall";
+			};
+			name = Debug;
+		};
+		AB8D3EE714D2D0C200FC88A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH)";
+				COPY_PHASE_STRIP = NO;
+				DEPLOYMENT_LOCATION = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Appscript_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				PRODUCT_NAME = Appscript;
+				WRAPPER_EXTENSION = framework;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		AB8D3EE914D2D0CC00FC88A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				DEPLOYMENT_LOCATION = NO;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PREBINDING = NO;
+				WARNING_CFLAGS = "-Wall";
+			};
+			name = Release;
+		};
+		AB8D3EEA14D2D0CC00FC88A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Appscript_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				PRODUCT_NAME = Appscript;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -642,27 +724,31 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB91AE08733DA50010E9CD /* Debug_10.4 */,
+				AB8D3EE714D2D0C200FC88A2 /* Debug */,
 				4FF1E93110C82D06002064A3 /* Debug_10.5 */,
 				1DEB91AF08733DA50010E9CD /* Release_10.4_32 */,
 				4F0C412C1097249600B879CE /* Release_10.4_32_embed */,
 				4F27FF710DF82C2100B681D4 /* Release_10.5_32_64_GC */,
+				AB8D3EEA14D2D0CC00FC88A2 /* Release */,
 				4FF1E92810C82C87002064A3 /* Release_10.5_32_64_GC_embed */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release_10.4_32;
+			defaultConfigurationName = Release;
 		};
 		1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "Appscript" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB91B208733DA50010E9CD /* Debug_10.4 */,
+				AB8D3EE614D2D0C200FC88A2 /* Debug */,
 				4FF1E93010C82D06002064A3 /* Debug_10.5 */,
 				1DEB91B308733DA50010E9CD /* Release_10.4_32 */,
 				4F0C412B1097249600B879CE /* Release_10.4_32_embed */,
 				4F27FF700DF82C2100B681D4 /* Release_10.5_32_64_GC */,
+				AB8D3EE914D2D0CC00FC88A2 /* Release */,
 				4FF1E92710C82C87002064A3 /* Release_10.5_32_64_GC_embed */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release_10.4_32;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
