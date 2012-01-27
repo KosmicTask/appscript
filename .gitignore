@@ -1,0 +1,13 @@
+/build
+/Research
+.DS_Store
+*~.nib
+*.mode1v3
+*.mode1
+*.mode2
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.xcworkspace
+xcuserdata/
+
