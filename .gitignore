@@ -11,3 +11,11 @@
 *.xcworkspace
 xcuserdata/
 
+#py build
+build/
+dist/
+
+#pydev
+.project
+.pydevproject
+

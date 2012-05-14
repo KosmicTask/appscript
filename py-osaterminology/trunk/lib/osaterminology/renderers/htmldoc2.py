@@ -246,12 +246,19 @@ classhtml = '''<!DOCTYPE html
 	</ul>
 </div>
 
-<div node="-con:elements">
+<div node="con:respondsto">
+		<p>responds to <span node="rep:item"> <strong><a href="" node="con:name">responds to</a></strong></span><span node="-sep:item"> , </span></p>
+</div>
+
+<div node="-con:elementplurals">
 	<h2>Elements</h2>
+		<p>contains <span node="rep:item"> <strong><a href="" node="con:name">plural</a></strong></span><span node="-sep:item"> , </span></p>
+</div>
+
+<div node="-con:elements">
 	<ul>
 		<li node="rep:item">
-			<strong><a href="" node="con:name">windows</a></strong> -- by
-			<em node="con:desc">name, index, relative position, range, filter, ID</em>
+			<strong><a href="" node="con:name">element</a></strong> -- by <em node="con:desc">name, index, relative position, range, filter, ID</em>
 		</li>
 	</ul>
 </div>
@@ -658,22 +665,39 @@ def render_class(node, klass, (parents, children, onetoone, onetomany), typerend
 		node.suite.item.repeat(render_definedinsuite, [klass])
 	properties = klass.properties()
 	elements = klass.elements()
+	respondsto = klass.respondsto()
 	parents = parents.get((klass.name, klass.suitename), [])
 	children = children.get((klass.name, klass.suitename), [])
 	containers = sortnodes(onetoone.get(klass.name, []) + onetomany.get(klass.name, []))
 	removeduplicatesfromsortedlist(containers)
+	
+	# render parents
 	if parents:
 		node.parents.item.repeat(render_parents, parents, typerenderer, options)
 	else:
 		node.parents.omit()
+		
+	# render properties	
 	if properties:
 		node.properties.item.repeat(render_property, properties, typerenderer, options)
 	else:
 		node.properties.omit()
+		
+	# render elements and plurals
 	if elements:
 		node.elements.item.repeat(render_element, elements, typerenderer, options)
+		node.elementplurals.item.repeat(render_elementplurals, elements, typerenderer, options)
 	else:
 		node.elements.omit()
+		node.elementplurals.omit()
+		
+	# render respondsto
+	if respondsto:
+		node.respondsto.item.repeat(render_respondsto, respondsto, typerenderer, options)
+	else:
+		node.respondsto.omit()
+		
+	# render children or containers
 	if children or containers:
 		notes = [('Inherited by', children), ('Contained by', containers)]
 		notes = [(label, items) for label, items in notes if items]
@@ -707,6 +731,21 @@ def render_element(node, element, typerenderer, options):
 	else:# some apps, e.g. GraphicConverter, define incomplete terminology
 		node.name.omittags()
 
+def render_respondsto(node, respondsto, typerenderer, options):
+	node.name.content = respondsto.type.name
+		
+def render_elementplurals(node, element, typerenderer, options):
+	if element.type.name:
+		classes = element.type.realvalues('class')
+		if classes:
+			klass = classes[-1]
+			node.name.atts['href'] = '../../%s/classes/%s.html' % (suitefolder(klass, options), stripnonchars(klass.name))
+			node.name.content = klass.pluralname
+		else:
+			node.name.omittags()
+	else:# some apps, e.g. GraphicConverter, define incomplete terminology
+		node.name.omittags()
+		
 def render_parents(node, parents, typerenderer, options):
 	node.parent.repeat(render_classlistitem, parents, typerenderer, options)
 
