@@ -9,6 +9,7 @@ so resulting documentation is more detailed than that produced by htmldoc
 
 from os import mkdir
 from os.path import exists, join
+from datetime import datetime
 
 from HTMLTemplate import Template
 
@@ -66,7 +67,7 @@ indexhtml = '''<!DOCTYPE html
 
 <div id="content">
 
-<p><code node="con:location">/Applications/TextEdit.app</code></p>
+<p><code node="con:location">Generated on Tue May 29 2012 21:10:00 for /Applications/TextEdit.app</code> <code node="con:build">by ASDictionary 0.13.0</code> </p>
 
 <div node="-rep:suite">
 
@@ -498,7 +499,7 @@ def writefile(pth, txt):
 ######################################################################
 # Frame
 
-def render_frame(node, terms):
+def render_frame(node, terms, info):
 	node.title.content = '%s terminology for %s' % (stripappsuffix(terms.name), terms.style)
 
 
@@ -508,11 +509,17 @@ frametpl = Template(render_frame, framehtml)
 ######################################################################
 # Index
 		
-def render_index(node, terms):
+def render_index(node, terms, info):
+	now = datetime.now()
+	generated = now.strftime("%a %b %d %Y %H:%M:%S")
 	node.title.content = node.title2.content = stripappsuffix(terms.name)
-	node.location.content = terms.path
+	node.location.content = "Generated on %s for %s" % (generated, terms.path)
+	if (info['generator-name'] and info['generator-version']):
+		node.build.content = "by %s %s" % (info['generator-name'], info['generator-version'])
+	else:
+		node.build.omit()
 	node.suite.repeat(render_suite, terms.suites())
-
+		
 def render_suite(node, suite):
 	node.anchor.atts['name'] = 'suite_%s' % stripnonchars(suite.name) 
 	node.name.content = suite.name
@@ -539,7 +546,7 @@ indextpl = Template(render_index, indexhtml)
 ######################################################################
 # Suites navigation
 
-def render_suitesnav(node, terms):
+def render_suitesnav(node, terms, info):
 	node.name.content = stripappsuffix(terms.name)
 	node.suite.repeat(render_suitenav, terms.suites())
 
@@ -561,10 +568,10 @@ def sortnodes(nodes):
 
 #######
 
-def render_classesnav(node, terms):
+def render_classesnav(node, terms, info):
 	node.item.repeat(render_classnav, sortnodes(terms.classes()), 0)
 
-def render_commandsnav(node, terms):
+def render_commandsnav(node, terms, info):
 	node.item.repeat(render_classorcommandnav, sortnodes(terms.commands()), 1)
 
 def render_classnav(node, item, kind):
@@ -817,12 +824,13 @@ commandtpl = Template(render_command, commandhtml)
 ######################################################################
 
 
-def renderdictionary(terms, outdir, style='py-appscript', options=[]):
+def renderdictionary(terms, outdir, style='py-appscript', options=[], info={}):
 	"""Render a Dictionary object's classes and commands as XHTML files.
 		terms : osaterminology.dom.osadictionary.Dictionary -- pre-parsed dictionary object
 		outdir : str -- the directory to write the dictionary to (will be created if it doesn't already exist)
 		style : str -- keyword formatting style ('appscript' or 'applescript')
 		options : list of str -- formatting options (zero or more of: 'collapse', 'showall')
+		info : dict of str -- info (keys: 'generator-name', 'generator-version')
 		Result : bool -- False if no terminology was found and no file was written; else True
 	"""
 	if 'showall' in options:
@@ -841,7 +849,7 @@ def renderdictionary(terms, outdir, style='py-appscript', options=[]):
 				('html/classes.html', classnavtpl),
 				('html/commands.html', commandnavtpl),
 				]:
-			writefile(join(outdir, pth), tpl.render(terms))
+			writefile(join(outdir, pth), tpl.render(terms, info))
 		# render classes
 		modelinfo = analyseobjectmodel(terms)
 		for klass in terms.classes():
