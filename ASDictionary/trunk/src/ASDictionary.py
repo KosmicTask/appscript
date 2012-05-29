@@ -293,6 +293,16 @@ class ASDictionary(NSDocument):
 				return
 			else:
 				raise
+		
+		# info dict	
+		info = {}
+		result = {}
+		app = _AEOMApplication(result)
+		app.property("vers")
+		info['generator-version'] = result["result"]
+		app.property("pnam")
+		info['generator-name'] = result["result"]
+		
 		# HTML options
 		options = []
 		if userDefaults.boolForKey_(u'compactClasses'):
@@ -311,7 +321,7 @@ class ASDictionary(NSDocument):
 		selection = self.selectedFiles()[:]
 		selection.sort(lambda a,b:cmp(a['name'].lower(), b['name'].lower()))
 		progressObj = GUIProgress(len(selection), len(styles), len([i for i in [plainText, singleHTML, frameHTML] if i]), self)
-		dictionaryexporter.export(selection, styles, plainText, singleHTML, frameHTML, objcGlue, options, outFolder, exportToSubfolders, progressObj)
+		dictionaryexporter.export(selection, styles, plainText, singleHTML, frameHTML, objcGlue, options, outFolder, exportToSubfolders, progressObj, info)
 	
 	
 	@objc.IBAction

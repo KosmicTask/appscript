@@ -135,7 +135,7 @@ def aetesforapp(aemapp):
 ######################################################################
 
 
-def export(items, styles, plainText, singleHTML, frameHTML, objcGlue, options, outFolder, exportToSubfolders, progress):
+def export(items, styles, plainText, singleHTML, frameHTML, objcGlue, options, outFolder, exportToSubfolders, progress, info):
 	styleInfo = [(style, kStyleToSuffix[style]) for style in styles]
 	# process each item
 	for i, item in enumerate(items):
@@ -199,7 +199,7 @@ def export(items, styles, plainText, singleHTML, frameHTML, objcGlue, options, o
 						outputPath = _makeDestinationFolder(outFolder, styleSubfolderName, 
 								exportToSubfolders and 'frame-html', name + suffix)
 						progress.nextoutput(u'%s' % outputPath)
-						htmldoc2.renderdictionary(terms, outputPath, style, options)
+						htmldoc2.renderdictionary(terms, outputPath, style, options, info)
 			if objcGlue and not isOSAX:
 				outputPath = _makeDestinationFolder(outFolder, 
 						exportToSubfolders and 'objc-appscript' or '', 
