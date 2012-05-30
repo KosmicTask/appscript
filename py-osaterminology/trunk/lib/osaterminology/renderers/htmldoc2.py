@@ -514,8 +514,10 @@ def render_index(node, terms, info):
 	generated = now.strftime("%a %b %d %Y %H:%M:%S")
 	node.title.content = node.title2.content = stripappsuffix(terms.name)
 	node.location.content = "Generated on %s for %s" % (generated, terms.path)
-	if (info['generator-name'] and info['generator-version']):
-		node.build.content = "by %s %s" % (info['generator-name'], info['generator-version'])
+	generatorname = info.get('generator-name', "")
+	generatorversion = info.get('generator-version', "")
+	if (generatorname != ""):
+		node.build.content = "by %s %s" % (generatorname, generatorversion)
 	else:
 		node.build.omit()
 	node.suite.repeat(render_suite, terms.suites())
