@@ -113,7 +113,13 @@ def handle_exportdictionaries(sources, outfolder,
 	if showinvisibles:
 		options.append('full')
 	progressobj = AEProgress(len(items), len(styles), len(fileformats), None)
-	return export(items, styles, plaintext, singlehtml, framehtml, isobjcglue, options, outfolder, usesubfolders, progressobj)
+	
+	# general info
+	infoPlist = NSBundle.mainBundle().infoDictionary()
+	info = {}
+	info['generator-name'] = infoPlist['CFBundleDisplayName']
+	info['generator-version'] = infoPlist['CFBundleShortVersionString']	
+	return export(items, styles, plaintext, singlehtml, framehtml, isobjcglue, options, outfolder, usesubfolders, progressobj, info)
 
 
 def aetesforapp(aemapp):
@@ -135,7 +141,7 @@ def aetesforapp(aemapp):
 ######################################################################
 
 
-def export(items, styles, plainText, singleHTML, frameHTML, objcGlue, options, outFolder, exportToSubfolders, progress, info):
+def export(items, styles, plainText, singleHTML, frameHTML, objcGlue, options, outFolder, exportToSubfolders, progress, info={}):
 	styleInfo = [(style, kStyleToSuffix[style]) for style in styles]
 	# process each item
 	for i, item in enumerate(items):
