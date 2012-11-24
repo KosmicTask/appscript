@@ -148,7 +148,11 @@ static ASBoolean *falseValue;
 }
 
 - (DescType)descriptorType { // stub method; subclasses will override
-	return '????';
+    
+    // ???? generates a trigraph warning
+    // see http://stackoverflow.com/questions/1234582/purpose-of-trigraph-sequences-in-c
+    
+	return '????';  
 }
 
 @end

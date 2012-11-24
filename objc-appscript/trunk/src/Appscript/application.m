@@ -85,8 +85,8 @@
 	return pid;
 error:
 	if (error) {
-		errorDescription = [NSString stringWithFormat: @"Can't find process ID for application %@: %@ (%i)", 
-														fileURL, ASDescriptionForError(err), err];
+		errorDescription = [NSString stringWithFormat: @"Can't find process ID for application %@: %@ (%li)", 
+														fileURL, ASDescriptionForError(err), (long)err];
 		errorInfo = [NSDictionary dictionaryWithObjectsAndKeys: 
 				errorDescription, NSLocalizedDescriptionKey,
 				[NSNumber numberWithInt: err], kASErrorNumberKey,
@@ -172,8 +172,8 @@ error:
 	return pid;
 error:
 	if (error) {
-		errorDescription = [NSString stringWithFormat: @"Can't launch application %@: %@ (%i)", 
-														fileURL, ASDescriptionForError(err), err];
+		errorDescription = [NSString stringWithFormat: @"Can't launch application %@: %@ (%li)",
+														fileURL, ASDescriptionForError(err), (long)err];
 		errorInfo = [NSDictionary dictionaryWithObjectsAndKeys: 
 				errorDescription, NSLocalizedDescriptionKey,
 				[NSNumber numberWithInt: err], kASErrorNumberKey,

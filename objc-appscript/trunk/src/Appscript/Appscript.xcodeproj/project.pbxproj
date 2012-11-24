@@ -422,237 +422,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		1DEB91AE08733DA50010E9CD /* Debug_10.4 */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH)";
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEPLOYMENT_LOCATION = NO;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_VERSION = A;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Appscript_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
-				PRODUCT_NAME = Appscript;
-				WRAPPER_EXTENSION = framework;
-				ZERO_LINK = YES;
-			};
-			name = Debug_10.4;
-		};
-		1DEB91AF08733DA50010E9CD /* Release_10.4_32 */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEPLOYMENT_LOCATION = NO;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_VERSION = A;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Appscript_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
-				PRODUCT_NAME = Appscript;
-				WRAPPER_EXTENSION = framework;
-			};
-			name = Release_10.4_32;
-		};
-		1DEB91B208733DA50010E9CD /* Debug_10.4 */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH)";
-				DEPLOYMENT_LOCATION = NO;
-				GCC_VERSION = 4.0;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
-				WARNING_CFLAGS = "-Wall";
-			};
-			name = Debug_10.4;
-		};
-		1DEB91B308733DA50010E9CD /* Release_10.4_32 */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = (
-					i386,
-					ppc,
-				);
-				DEPLOYMENT_LOCATION = NO;
-				GCC_VERSION = 4.0;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
-				WARNING_CFLAGS = "-Wall";
-			};
-			name = Release_10.4_32;
-		};
-		4F0C412B1097249600B879CE /* Release_10.4_32_embed */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = (
-					i386,
-					ppc,
-				);
-				DEPLOYMENT_LOCATION = NO;
-				GCC_VERSION = 4.0;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
-				WARNING_CFLAGS = "-Wall";
-			};
-			name = Release_10.4_32_embed;
-		};
-		4F0C412C1097249600B879CE /* Release_10.4_32_embed */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEPLOYMENT_LOCATION = NO;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_VERSION = A;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Appscript_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "@executable_path/../Frameworks";
-				PRODUCT_NAME = Appscript;
-				WRAPPER_EXTENSION = framework;
-			};
-			name = Release_10.4_32_embed;
-		};
-		4F27FF700DF82C2100B681D4 /* Release_10.5_32_64_GC */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = (
-					i386,
-					ppc,
-					ppc64,
-					x86_64,
-				);
-				DEPLOYMENT_LOCATION = NO;
-				GCC_ENABLE_OBJC_GC = supported;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
-				WARNING_CFLAGS = "-Wall";
-			};
-			name = Release_10.5_32_64_GC;
-		};
-		4F27FF710DF82C2100B681D4 /* Release_10.5_32_64_GC */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_VERSION = A;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Appscript_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
-				PRODUCT_NAME = Appscript;
-				WRAPPER_EXTENSION = framework;
-			};
-			name = Release_10.5_32_64_GC;
-		};
-		4FF1E92710C82C87002064A3 /* Release_10.5_32_64_GC_embed */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = (
-					i386,
-					ppc,
-					ppc64,
-					x86_64,
-				);
-				DEPLOYMENT_LOCATION = NO;
-				GCC_ENABLE_OBJC_GC = supported;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
-				WARNING_CFLAGS = "-Wall";
-			};
-			name = Release_10.5_32_64_GC_embed;
-		};
-		4FF1E92810C82C87002064A3 /* Release_10.5_32_64_GC_embed */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_VERSION = A;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Appscript_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "@executable_path/../Frameworks";
-				PRODUCT_NAME = Appscript;
-				WRAPPER_EXTENSION = framework;
-			};
-			name = Release_10.5_32_64_GC_embed;
-		};
-		4FF1E93010C82D06002064A3 /* Debug_10.5 */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH)";
-				DEPLOYMENT_LOCATION = NO;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
-				WARNING_CFLAGS = "-Wall";
-			};
-			name = Debug_10.5;
-		};
-		4FF1E93110C82D06002064A3 /* Debug_10.5 */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH)";
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEPLOYMENT_LOCATION = NO;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_VERSION = A;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Appscript_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
-				PRODUCT_NAME = Appscript;
-				WRAPPER_EXTENSION = framework;
-				ZERO_LINK = YES;
-			};
-			name = Debug_10.5;
-		};
 		AB8D3EE614D2D0C200FC88A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -660,17 +429,20 @@
 				DEPLOYMENT_LOCATION = NO;
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				WARNING_CFLAGS = "-Wall";
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wno-trigraphs",
+				);
 			};
 			name = Debug;
 		};
 		AB8D3EE714D2D0C200FC88A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEPLOYMENT_LOCATION = NO;
@@ -682,7 +454,6 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Appscript_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "";
 				PRODUCT_NAME = Appscript;
@@ -698,10 +469,14 @@
 				DEPLOYMENT_LOCATION = NO;
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				WARNING_CFLAGS = "-Wall";
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wno-trigraphs",
+				);
 			};
 			name = Release;
 		};
@@ -716,7 +491,6 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Appscript_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "";
 				PRODUCT_NAME = Appscript;
@@ -730,14 +504,8 @@
 		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "Appscript" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1DEB91AE08733DA50010E9CD /* Debug_10.4 */,
 				AB8D3EE714D2D0C200FC88A2 /* Debug */,
-				4FF1E93110C82D06002064A3 /* Debug_10.5 */,
-				1DEB91AF08733DA50010E9CD /* Release_10.4_32 */,
-				4F0C412C1097249600B879CE /* Release_10.4_32_embed */,
-				4F27FF710DF82C2100B681D4 /* Release_10.5_32_64_GC */,
 				AB8D3EEA14D2D0CC00FC88A2 /* Release */,
-				4FF1E92810C82C87002064A3 /* Release_10.5_32_64_GC_embed */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -745,14 +513,8 @@
 		1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "Appscript" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1DEB91B208733DA50010E9CD /* Debug_10.4 */,
 				AB8D3EE614D2D0C200FC88A2 /* Debug */,
-				4FF1E93010C82D06002064A3 /* Debug_10.5 */,
-				1DEB91B308733DA50010E9CD /* Release_10.4_32 */,
-				4F0C412B1097249600B879CE /* Release_10.4_32_embed */,
-				4F27FF700DF82C2100B681D4 /* Release_10.5_32_64_GC */,
 				AB8D3EE914D2D0CC00FC88A2 /* Release */,
-				4FF1E92710C82C87002064A3 /* Release_10.5_32_64_GC_embed */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -178,22 +178,22 @@ fail:
 		if (!(considsAndIgnoresFlags && kAECaseConsiderMask))
 			[ignoreListDesc insertDescriptor: [NSAppleEventDescriptor descriptorWithEnumCode: kAECase] 
 									 atIndex: 0];
-		if (considsAndIgnoresFlags && kAEDiacriticIgnoreMask)
+		if (considsAndIgnoresFlags & kAEDiacriticIgnoreMask)
 			[ignoreListDesc insertDescriptor: [NSAppleEventDescriptor descriptorWithEnumCode: kAEDiacritic] 
 									 atIndex: 0];
-		if (considsAndIgnoresFlags && kAEWhiteSpaceIgnoreMask)
+		if (considsAndIgnoresFlags & kAEWhiteSpaceIgnoreMask)
 			[ignoreListDesc insertDescriptor: [NSAppleEventDescriptor descriptorWithEnumCode: kAEWhiteSpace] 
 									 atIndex: 0];
-		if (considsAndIgnoresFlags && kAEHyphensIgnoreMask)
+		if (considsAndIgnoresFlags & kAEHyphensIgnoreMask)
 			[ignoreListDesc insertDescriptor: [NSAppleEventDescriptor descriptorWithEnumCode: kAEHyphens] 
 									 atIndex: 0];
-		if (considsAndIgnoresFlags && kAEExpansionIgnoreMask)
+		if (considsAndIgnoresFlags & kAEExpansionIgnoreMask)
 			[ignoreListDesc insertDescriptor: [NSAppleEventDescriptor descriptorWithEnumCode: kAEExpansion] 
 									 atIndex: 0];
-		if (considsAndIgnoresFlags && kAEPunctuationIgnoreMask)
+		if (considsAndIgnoresFlags & kAEPunctuationIgnoreMask)
 			[ignoreListDesc insertDescriptor: [NSAppleEventDescriptor descriptorWithEnumCode: kAEPunctuation] 
 									 atIndex: 0];
-		if (considsAndIgnoresFlags && kASNumericStringsIgnoreMask)
+		if (considsAndIgnoresFlags & kASNumericStringsIgnoreMask)
 			[ignoreListDesc insertDescriptor: [NSAppleEventDescriptor descriptorWithEnumCode: kASNumericStrings] 
 									 atIndex: 0];
 		[AS_event setAttribute: ignoreListDesc forKeyword: enumConsiderations];
@@ -283,7 +283,7 @@ fail:
 	}
 	// format attributes
 	if (timeout != kAEDefaultTimeout)
-		result = [NSString stringWithFormat: @"[%@ timeout: %i]", result, timeout / 60];
+		result = [NSString stringWithFormat: @"[%@ timeout: %li]", result, (long)timeout / 60];
 	if (sendMode != (kAEWaitReply | kAECanSwitchLayer)) {
 		if (sendMode & (~(kAEWaitReply | kAEQueueReply | kAENoReply) == kAECanSwitchLayer)) {
 			if (sendMode & kAENoReply)
@@ -291,10 +291,10 @@ fail:
 			if (sendMode & kAEQueueReply)
 				result = [NSString stringWithFormat: @"[%@ queueReply]", result];
 		} else
-			result = [NSString stringWithFormat: @"[%@ sendMode: %#08x]", result, sendMode];
+			result = [NSString stringWithFormat: @"[%@ sendMode: %#08lx]", result, (long)sendMode];
 	}
 	if (considsAndIgnoresFlags != kAECaseIgnoreMask)
-		result = [NSString stringWithFormat: @"[%@ considering: %#08x]", result, considsAndIgnoresFlags];
+		result = [NSString stringWithFormat: @"[%@ considering: %#08lx]", result, (long)considsAndIgnoresFlags];
 	// format unpacking options
 	[AS_event getUnpackFormat: &format type: &type];
 	if (format == kAEMUnpackAsItem && type != typeWildCard)
