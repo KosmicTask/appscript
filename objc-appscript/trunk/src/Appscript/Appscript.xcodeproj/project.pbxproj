@@ -457,6 +457,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "";
 				PRODUCT_NAME = Appscript;
+				SDKROOT = macosx10.8;
 				WRAPPER_EXTENSION = framework;
 				ZERO_LINK = YES;
 			};
@@ -494,6 +495,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "";
 				PRODUCT_NAME = Appscript;
+				SDKROOT = macosx10.8;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
